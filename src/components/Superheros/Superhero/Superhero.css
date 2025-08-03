@@ -1,0 +1,33 @@
+.superhero {
+  background-color: #f1f1f1;
+  padding: 17px;
+}
+
+.superhero h2 {
+  text-align: center;
+}
+
+.superhero img {
+  width: 10vw;
+  margin: 0 auto 15px auto;
+  display:block;
+  border-radius: 50%;
+  height: 10vw;
+  object-fit: cover;
+}
+
+.read-more {
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.read-more:hover{
+  color:#ED1D24;
+  
+}
+
+.favoritehero {
+  background-color: #fde8e9;
+}

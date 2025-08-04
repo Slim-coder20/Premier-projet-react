@@ -11,4 +11,10 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />
   </StrictMode>
+
+  /*
+   Le strict Mode de react Execute deux fois chaque composants 
+   Execute deux fois les useEffect 
+   Il va vérifier que les composants n'utilise pas des méthodes deprecié 
+  */
 );

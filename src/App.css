@@ -3,5 +3,9 @@
 }
 
 .input {
-  @apply px-3 py-1 bg-neutral-100 rounded-[5px]
+  @apply px-3 py-1 bg-neutral-100 rounded-[5px] text-gray-950; 
+}
+
+.label {
+  @apply font-semibold mb-2 text-sm; 
 }

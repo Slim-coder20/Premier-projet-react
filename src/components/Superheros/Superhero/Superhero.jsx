@@ -1,5 +1,5 @@
 import classes from "./Superhero.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 export default function Superhero({
@@ -32,12 +32,21 @@ export default function Superhero({
     setAfficherModale(true);
   };
 
+  useEffect( () =>  {
+    if(afficherModale) {
+      document.body.style.overflow = "hidden"; 
+    } else {
+      document.body.style.averflow = "unset"; 
+    }
+  },[afficherModale])
+
   return (
     <div
       className={`${classes.superhero} ${isFavoriteHero && classes.isFavoriteHero}`}
       onClick={() => superheroClicked(nom)}
       style={{ position: "relative" }}
     >
+      {/* Utilisation de la Modale  */}
       {afficherModale &&
         createPortal(
           <div

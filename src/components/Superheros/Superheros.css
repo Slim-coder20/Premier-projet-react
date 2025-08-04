@@ -7,5 +7,5 @@
 }
 
 .text {
-  @apply text-3xl mt-3 text-center uppercase font-semibold
+  @apply text-3xl mt-3 text-center uppercase font-semibold text-white;
 }

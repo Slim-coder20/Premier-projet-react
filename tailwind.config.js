@@ -9,6 +9,9 @@ export default {
       colors: {
           red:{
             marvel:"#ED171E", 
+          }, 
+          black:{
+            marvel:"#202020", 
           },
       },
     },

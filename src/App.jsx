@@ -38,7 +38,8 @@ export default function App() {
     setfavoriteHero(nom);
   };
 
-  const sauvegarderLesuperhero = () => {
+  const sauvegarderLesuperhero = (e) => {
+    e.preventDefault();
     setNouveauSuperhero((ancienSuperhero) => ({
       ...ancienSuperhero,
       nom: nom.current.value,
@@ -115,7 +116,7 @@ export default function App() {
         <form className=" p-[15px] bg-red-marvel text-white">
           <h3 className="text-center uppercase font-semibold my-5">Crée ton propre super hero</h3>
           <div>
-            <label htmlFor="nom">
+            <label htmlFor="nom" className="label">
               Nom
             </label>
             <input
@@ -134,7 +135,7 @@ export default function App() {
             />
           </div>
           <div style={{ marginTop: 10 }}>
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description" className="label">Description</label>
             <input
               type="text"
               name="description"
@@ -150,7 +151,7 @@ export default function App() {
             />
           </div>
           <div style={{ marginTop: 10 }}>
-            <label htmlFor="image">Photo</label>
+            <label htmlFor="image" className="label">Photo</label>
             <input
               type="text"
               name="image"
@@ -167,7 +168,7 @@ export default function App() {
           </div>
           <div
             style={{ display: "flex", justifyContent: "end", marginTop: 10 }}
-            onClick={sauvegarderLesuperhero}
+            onClick={(event) => sauvegarderLesuperhero (event)}
           >
             <button className="bg-red-900 p-4 text-white px-3 py-1 rounded mt-5 hover:bg-red-400 duration-150">Modifer</button>
           </div>

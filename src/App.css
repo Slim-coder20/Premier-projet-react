@@ -1,3 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
+.input {
+  @apply px-3 py-1 bg-neutral-100 rounded-[5px]
+}

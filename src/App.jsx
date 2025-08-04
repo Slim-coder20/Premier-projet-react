@@ -4,39 +4,34 @@ import Superhero from "./components/Superheros/Superhero/Superhero";
 import Superheros from "./components/Superheros/Superheros";
 import { useState, useRef, useEffect } from "react";
 
-
 export default function App() {
-  // State avec useState // 
+  // State avec useState //
   const [favoriteHero, setfavoriteHero] = useState();
   const [nouveauSuperhero, setNouveauSuperhero] = useState({
-    nom:"Anonyme", 
-    description:"", 
-    image:""
-  })
+    nom: "Anonyme",
+    description: "",
+    image: "",
+  });
 
-  
-  // Variables useRef // 
-  const nom = useRef(); 
-  const description = useRef(); 
-  const image = useRef(); 
+  // Variables useRef //
+  const nom = useRef();
+  const description = useRef();
+  const image = useRef();
 
-  
-  // Cycle avec le useEffect // 
+  // Cycle avec le useEffect //
   useEffect(() => {
-    image.current.focus(); 
+    image.current.focus();
+  }, [
+    nouveauSuperhero.nom,
+    nouveauSuperhero.description,
+    nouveauSuperhero.image,
+  ]);
 
-  }, [  
-        nouveauSuperhero.nom, 
-        nouveauSuperhero.description, 
-        nouveauSuperhero.image
-      ]);
-  
   useEffect(() => {
-    nom.current.value ="";
-    description.current.vlaue = ""; 
-    image.current.value = ""; 
-  }, 
-  [nouveauSuperhero.nom]);
+    nom.current.value = "";
+    description.current.vlaue = "";
+    image.current.value = "";
+  }, [nouveauSuperhero.nom]);
 
   // Fonction
   const superheroClicked = (nom) => {
@@ -44,19 +39,29 @@ export default function App() {
   };
 
   const sauvegarderLesuperhero = () => {
-    setNouveauSuperhero(ancienSuperhero => ({
-    ...ancienSuperhero, nom: nom.current.value}));
-    
-    setNouveauSuperhero(ancienSuperhero => ({
-    ...ancienSuperhero, description: description.current.value}));
-    
-    setNouveauSuperhero(ancienSuperhero => ({
-    ...ancienSuperhero, image: image.current.value}));
+    setNouveauSuperhero((ancienSuperhero) => ({
+      ...ancienSuperhero,
+      nom: nom.current.value,
+    }));
+
+    setNouveauSuperhero((ancienSuperhero) => ({
+      ...ancienSuperhero,
+      description: description.current.value,
+    }));
+
+    setNouveauSuperhero((ancienSuperhero) => ({
+      ...ancienSuperhero,
+      image: image.current.value,
+    }));
   };
 
   return (
     <main>
-      <h1>Marvel</h1>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/1200px-Marvel_Logo.svg.png"
+        alt="Logo Marvel"
+        className="w-24 mx-auto mt-4 rounded-md"
+      />
       <Superheros>
         {/* Super hero 1 */}
         <Superhero
@@ -97,24 +102,28 @@ export default function App() {
         />
         <Superhero
           nom={nouveauSuperhero.nom}
-          description={nouveauSuperhero.description != "" ? nouveauSuperhero.description : undefined}
-          image={nouveauSuperhero.image != "" ? nouveauSuperhero.image : undefined}
+          description={
+            nouveauSuperhero.description != ""
+              ? nouveauSuperhero.description
+              : undefined
+          }
+          image={
+            nouveauSuperhero.image != "" ? nouveauSuperhero.image : undefined
+          }
         />
         {/* Paramettrage de notre super hero  */}
-        <div
-          style={{
-            border: "1px solid black",
-            padding: "15px",
-          }}
-        >
-          <h3 style={{ textAlign: "center" }}>Crée ton propre super hero</h3>
+        <form className=" p-[15px] bg-red-marvel text-white">
+          <h3 className="text-center uppercase font-semibold my-5">Crée ton propre super hero</h3>
           <div>
-            <label htmlFor="nom">Nom</label>
+            <label htmlFor="nom">
+              Nom
+            </label>
             <input
               type="text"
               name="nom"
               id="name"
               ref={nom}
+              className="input"
               style={{
                 padding: 5,
                 marginTop: 5,
@@ -130,6 +139,7 @@ export default function App() {
               type="text"
               name="description"
               id="description"
+              className="input"
               ref={description}
               style={{
                 padding: 5,
@@ -145,6 +155,7 @@ export default function App() {
               type="text"
               name="image"
               id="image"
+              className="input"
               ref={image}
               style={{
                 padding: 5,
@@ -158,9 +169,9 @@ export default function App() {
             style={{ display: "flex", justifyContent: "end", marginTop: 10 }}
             onClick={sauvegarderLesuperhero}
           >
-            <button>Modifer</button>
+            <button className="bg-red-900 p-4 text-white px-3 py-1 rounded mt-5 hover:bg-red-400 duration-150">Modifer</button>
           </div>
-        </div>
+        </form>
       </Superheros>
     </main>
   );

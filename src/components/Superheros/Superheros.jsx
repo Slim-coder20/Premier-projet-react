@@ -1,11 +1,12 @@
 import Superhero from "./Superhero/Superhero";
-import "./Superheros.css"; 
+import "./Superheros.css";
 
 export default function Superheros(props) {
-  console.log(props)
+  console.log(props);
   return (
-    <div className="superheros">
-        {props.children}
-    </div>
+    <>
+      <h2 className="text">Le top 3 des superheros</h2>
+      <div className="superheros">{props.children}</div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import "./Superhero.css";
+import classes from "./Superhero.module.css";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -34,7 +34,7 @@ export default function Superhero({
 
   return (
     <div
-      className={`superhero ${isFavoriteHero && "favoritehero"}`}
+      className={`${classes.superhero} ${isFavoriteHero && classes.isFavoriteHero}`}
       onClick={() => superheroClicked(nom)}
       style={{ position: "relative" }}
     >
@@ -70,14 +70,14 @@ export default function Superhero({
         )}
       {/* Carte  */}
       <img src={image} alt={`${nom} image`} />
-      <h2 onClick={(evenement) => nomClique(evenement)}>{nom}</h2>
+      <h2 onClick={(evenement) => nomClique(evenement)} className=" text-xl font-bold cursor-pointer">{nom}</h2>
 
       {/* Description */}
       <p>{description}</p>
 
       {/* Détails */}
       <div
-        className="read-more"
+        className=" text-red-600 cursor-pointer font-bold mb-[10px] hover:text-red-300"
         onClick={(evenement) => {
           evenement.stopPropagation();
           setShowDetails((stateBefor) => !stateBefor);
